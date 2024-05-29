@@ -7,3 +7,4 @@ class Persona(ABC):
         self.ci = ci
         self.fecha_nacimiento = fecha_nacimiento
         self.fecha_ingreso = fecha_ingreso
+        self.celular = celular
