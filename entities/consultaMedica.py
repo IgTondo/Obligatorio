@@ -6,6 +6,6 @@ class ConsultaMedica():
         self.cant_pacientes = [i for i in range(1, cant_pacientes+1)]
         self.socios = []
         
-    
+
         
     

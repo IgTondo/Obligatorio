@@ -11,6 +11,7 @@ class Policlinica:
     especialidades = []
     tickets_emitidos = []
     
+    
     def verificar_especialidad(esp):
         if(all(x.isalpha() or x.isspace() for x in esp)):
             if (esp not in (especialidad.nombre for especialidad in Policlinica.especialidades)):
@@ -36,8 +37,9 @@ class Policlinica:
     def verificar_esp_medico(esp,ci):
         for medico in Policlinica.medicos:
             if medico.ci==ci:
-                if medico.especialidad == esp:
+                if medico.especialidad.nombre == esp:
                     return False 
+                else: return True
                     
     def verificar_medico(ci):
         if(ci not in (medicos.ci for medicos in Policlinica.medicos)):
@@ -57,63 +59,78 @@ class Policlinica:
         else:
                 return False
     def alta_especialidad():
+        print("--------------------------------------")
         while True:
-            print("--------------------------------------")
             nombre = input("Ingrese el nombre de la especialidad: ")
-            precio = input("Ingrese el precio asociado: ")
-            
-            
             if(not all(x.isalpha() or x.isspace() for x in nombre)): 
-                print("El nombre de la especialidad es incorrecto, ingréselo nuevamente")
-                continue
-            
-            if(not precio.isdecimal()):
-                print("El precio de la especialidad es incorrecto, ingréselo nuevamente")
+                print("El nombre de la especialidad es incorrecto,ingréselo nuevamente")
                 continue
             break
+            
+        while True:
+            precio = input("Ingrese el precio asociado: ")
+            if(not precio.isdecimal()):
+                print("El precio de la especialidad es incorrecto,ingréselo nuevamente")
+                continue
+            break 
+
         Policlinica.especialidades.append(Especialidad(nombre, precio))
         print("La especialidad se ha creado con exito")
-        print(Policlinica.especialidades[-1].nombre)
-        lista1=Policlinica.especialidades
-        for elemento in lista1:
-            print(elemento)
+        for especialidad in Policlinica.especialidades:
+            print(especialidad)
         
     def dar_alta_medico():
+        print("--------------------------------------")
         while True:
-            print("--------------------------------------")
             nombre = input("\t- Ingrese el nombre: ")
+            if(not all(x.isalpha() or x.isspace() for x in nombre)): 
+                print("No es un nombre válido ingreselo nuevamente.")
+                continue
+            break
+        
+        while True:
             apellido = input("\t- Ingrese el apellido: ")
+            if(not all(x.isalpha() or x.isspace() for x in apellido)): 
+                print("No es un apellido válido, ingreselo nuevamente.")
+                continue
+            break
+        
+        while True:
             ci = input("\t- Ingrese la cédula de identidad: ")
-            fecha_nacimiento = input("\t- Ingrese la fecha de nacimiento en formato aaaa-mm-dd: ")
-            fecha_ingreso = input("\t- Ingrese la fecha de ingreso a la institución en formato aaaa-mm-dd: ")
-            celular = input("\t - Ingrese el número de celular: ")
-            especialidad = input("\t - Ingrese la especialidad: ")
-            
-            if(not nombre.isalpha()): 
-                print("No es un nombre válido, ingréselo nuevamente")
-                continue
-            
-            if(not apellido.isalpha()): 
-                print("No es un apellido válido, ingréselo nuevamente")
-                continue
-            
             if(Utils.verificar_ci(ci)):
                 print("No es una cédula válida, ingrese nuevamente una cédula de 8 dígitos.")
                 continue
-                
-            if(Utils.validar_fecha(fecha_nacimiento) or Utils.validar_fecha(fecha_ingreso)):
+            break
+        
+        while True:
+            fecha_nacimiento = input("\t- Ingrese la fecha de nacimiento en formato aaaa-mm-dd: ")
+            if(Utils.validar_fecha(fecha_nacimiento)):
                 print("No es una fecha válida, vuelva a ingresarla en el formato aaaa-mm-dd.")
                 continue
-                
+            break
+        
+        while True:
+            fecha_ingreso = input("\t- Ingrese la fecha de ingreso a la institución en formato aaaa-mm-dd: ")
+            if(Utils.validar_fecha(fecha_ingreso)):
+                print("No es una fecha válida, vuelva a ingresarla en el formato aaaa-mm-dd.")
+                continue
+            break
+        
+        
+        while True:
+            celular = input("\t - Ingrese el número de celular: ")
             if(Utils.verificar_celular(celular)):
                 print("No es un número de celular válido, ingrese un número con el formato 09XXXXXXX")
                 continue
-            
+            break
+        
+        while True:
+            especialidad = input("\t - Ingrese la especialidad: ")
             if(Policlinica.verificar_especialidad(especialidad) == 1):
                 continue
             elif(Policlinica.verificar_especialidad(especialidad) == 2):
                 Policlinica.alta_especialidad()
-            break
+            else: break            
         
         for esp in Policlinica.especialidades:
             if esp.nombre == especialidad:
@@ -121,39 +138,55 @@ class Policlinica:
                 
         Policlinica.medicos.append(Medico(nombre, apellido, ci, fecha_nacimiento, fecha_ingreso, celular, especialidad))
         print("El médico se ha agregado exitosamente.")
-        print(Policlinica.medicos)
-        
+        for medico in Policlinica.medicos:
+            print(medico)
+
+
     def alta_socio():
+        # while True:
+        print("--------------------------------------")
         while True:
-            print("--------------------------------------")
             nombre = input("\t- Ingrese el nombre: ")
+            if(not all(x.isalpha() or x.isspace() for x in nombre)): 
+                print("No es un nombre válido,ingréselo nuevamente")
+                continue
+            break
+
+        while True:
             apellido = input("\t- Ingrese el apellido: ")
+            if(not all(x.isalpha() or x.isspace() for x in apellido)): 
+                print("No es un apellido válido,ingréselo nuevamente")
+                continue
+            break
+        while True:
             ci = input("\t- Ingrese la cédula de identidad: ")
-            fecha_nacimiento = input("\t- Ingrese la fecha de nacimiento en formato aaaa-mm-dd: ")
-            fecha_ingreso = input("\t- Ingrese la fecha de ingreso a la institución en formato aaaa-mm-dd: ")
-            celular = input("\t- Ingrese el número de celular: ")
-            tipo = input("\t- Ingrese el tipo de socio(1-Bonificado, 2-No bonificado): ")
-            
-            if(not nombre.isalpha()): 
-                print("El nombre es incorrecto, ingréselo nuevamente")
-                continue
-            
-            if(not apellido.isalpha()): 
-                print("El apellido es incorrecto, ingréselo nuevamente")
-                continue
-            
             if(Utils.verificar_ci(ci)):
                 print("No es una cédula válida, ingrese nuevamente una cédula de 8 digitos.")
-                continue
-                
-            if(Utils.validar_fecha(fecha_nacimiento) or Utils.validar_fecha(fecha_ingreso)):
+                continue            
+            break
+        while True:
+            fecha_nacimiento = input("\t- Ingrese la fecha de nacimiento en formato aaaa-mm-dd: ")
+            if(Utils.validar_fecha(fecha_nacimiento)):
                 print("No es una fecha válida, vuelva a ingresarla en el formato aaaa-mm-dd.")
                 continue
-            
+            break
+
+        while True:
+            fecha_ingreso = input("\t- Ingrese la fecha de ingreso a la institución en formato aaaa-mm-dd: ")
+            if(Utils.validar_fecha(fecha_ingreso)):
+                print("No es una fecha válida, vuelva a ingresarla en el formato aaaa-mm-dd.")
+                continue
+            break
+        
+        while True:
+            celular = input("\t- Ingrese el número de celular: ")
             if(Utils.verificar_celular(celular)):
                 print("No es un número de celular válido, ingrese un número con el formato 09XXXXXXX")
                 continue
-                
+            break
+
+        while True:
+            tipo = input("\t- Ingrese el tipo de socio(1-Bonificado, 2-No bonificado): ")
             if(tipo == "1"):
                 tipo = True
             elif(tipo == "2"):
@@ -165,56 +198,60 @@ class Policlinica:
                 
         Policlinica.socios.append(Socio(nombre, apellido, ci, fecha_nacimiento, fecha_ingreso, celular, tipo))
         print("El socio se ha creado con exito.")
+        for socio in Policlinica.socios:
+            print(socio)
         
     def alta_consulta_medica():
-        while True:
             print("--------------------------------------")
-            especialidad = input("\t - Ingrese la especialidad: ")
-            nombre = input("\t- Ingrese el nombre del médico: ")
-            apellido=input("\t- Ingrese el apellido del médico: ")
-            fecha_consulta = input("\t- Ingrese la fecha de consulta en formato aaaa-mm-dd: ")
-            cant_pacientes=input("\t- Ingrese la cantidad de pacientes que se atenderán: ")
+            while True:
+                especialidad = input("\t - Ingrese la especialidad: ")
+                res = Policlinica.verificar_especialidad(especialidad)
+                if(res == 1):
+                    continue
+                elif(res == 2):
+                    Policlinica.alta_especialidad()
+                break
             
-            
-            if(not nombre.isalpha()): 
-                print("El nombre es incorrecto, ingréselo nuevamente")
-                continue
-            
-            if(not apellido.isalpha()): 
-                print("El apellido es incorrecto, ingréselo nuevamente")
-                continue
-            
-            if(Utils.validar_fecha(fecha_consulta)):
-                print("No es una fecha válida, vuelva a ingresarla en el formato aaaa-mm-dd.")
-                continue
-                
-            if(Policlinica.verificar_especialidad(especialidad) == 1):
-                continue
-            elif(Policlinica.verificar_especialidad(especialidad) == 2):
-                Policlinica.alta_especialidad()
-                continue
+            while True:
+                ci = input("\t- Ingrese la cedula del médico: ")
+                if(Utils.verificar_ci(ci)):
+                    print("No es una cédula válida, ingrese nuevamente una cédula de 8 digitos.")
+                    continue 
+                res = Policlinica.verificar_medico(medico)
+                if res == 1:
+                    continue
+                elif res == 2:
+                    Policlinica.dar_alta_medico()  
+                    
+                if(Policlinica.verificar_esp_medico(especialidad,ci)):
+                    continue        
+                break
 
-            if (Policlinica.verificar_medico(medico))==1:
-                continue
-            elif (Policlinica.verificar_medico(medico))==2:
-                Policlinica.dar_alta_medico()
-                continue
+            while True:
+                fecha_consulta = input("\t- Ingrese la fecha de la consulta en formato aaaa-mm-dd: ")
+                if(Utils.validar_fecha(fecha_consulta)):
+                    print("No es una fecha válida, vuelva a ingresarla en el formato aaaa-mm-dd.")
+                    continue
+                break
 
-            if(Utils.verificar_esp_medico(especialidad,nombre,apellido)):
-                continue
-            break
-        
-        for medico in Policlinica.medicos:
-            if medico.nombre==nombre:
-                if medico.apellido==apellido:
+            while True:
+                cant_pacientes=input("\t- Ingrese la cantidad de pacientes que se atenderán: ")
+                if (Utils.verificar_cant(cant_pacientes)):
+                    print("La cantidad de pacientes debe de ser un numero, ingreselo de nuevo")
+                    continue
+                break  
+            
+            for medico in Policlinica.medicos:
+                if medico.ci == ci:
                     medico1 = medico
                 
-        for especialidad in Policlinica.especialidades:
-            if especialidad.nombre == especialidad:
-                especialidad1 = especialidad
+            for especialidad in Policlinica.especialidades:
+                if especialidad.nombre == especialidad:
+                    especialidad1 = especialidad
         
-        Policlinica.consultas_medicas.append(ConsultaMedica(fecha_consulta, especialidad1, medico1, cant_pacientes))
-
+            Policlinica.consultas_medicas.append(ConsultaMedica(fecha_consulta, especialidad1, medico1, cant_pacientes))
+        
+        
     def emitir_ticket():
         # En emitir ticket no deberia de pedir la info del sopcio?
         # En emitir ticket no deberia de cambiar la deuda del socio

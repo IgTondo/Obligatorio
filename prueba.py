@@ -12,13 +12,13 @@
 #     print(12
 
 
-sad = "asdasd"
-if(False == 0):
+sad = "14"
+if(sad.isdecimal()):
     print("a")
 
 # print(sad.replace(" ", ""))
-if all(x.isalpha() or x.isspace() for x in sad):
-    print(123)
+# if all(x.isalpha() or x.isspace() for x in sad):
+#     print(123)
 
 # class Cosa:
 #     def __init__(self):

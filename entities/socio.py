@@ -8,6 +8,5 @@ class Socio(Persona):
         self.deuda = 0
         
     def __str__(self):
-        print([self.nombre, self.apellido])
-        
+        return (f"{self.nombre}, {self.apellido}")
     

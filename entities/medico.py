@@ -6,6 +6,6 @@ class Medico(Persona):
         self.especialidad = especialidad
         
     def __str__(self):
-        return f"{self.nombre}, {self.apellido}, {self.especialidad.nombre}"
+        return (f"{self.nombre}, {self.apellido}, {self.especialidad.nombre}")
         
     
