@@ -1,4 +1,4 @@
-from entities.policlinica import Policlinica
+from modules.policlinica import Policlinica
 
 if __name__ == "__main__":
     
@@ -13,19 +13,21 @@ if __name__ == "__main__":
         print("\t7. Salir del programa")
         op = input("Seleccione una opción del menú:")
         
+        policlinica = Policlinica()
+        
         match op:
             case "1":
-                Policlinica.alta_especialidad()
+                policlinica.alta_especialidad()
             case "2":
-                Policlinica.alta_socio()
+                policlinica.alta_socio()
             case "3":
-                Policlinica.dar_alta_medico()
+                policlinica.dar_alta_medico()
             case "4":
-                Policlinica.alta_consulta_medica()
+                policlinica.alta_consulta_medica()
             case "5":
-                Policlinica.emitir_ticket()
+                policlinica.emitir_ticket()
             case "6":
-                Policlinica.realizar_consulta()
+                policlinica.realizar_consulta()
             case "7":
                 break
             case _:

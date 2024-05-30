@@ -12,9 +12,9 @@
 #     print(12
 
 
-sad = "14"
-if(sad.isdecimal()):
-    print("a")
+# sad = "14"
+# if(sad.isdecimal()):
+#     print("a")
 
 # print(sad.replace(" ", ""))
 # if all(x.isalpha() or x.isspace() for x in sad):
@@ -46,3 +46,28 @@ if(sad.isdecimal()):
 # arr = [1,2,3]
 
 # print(", ".join(str(x) for x in arr))
+# while True:
+#     cont = 1
+#     a = ["ab","b","cb", "d", "fg", "bh"]
+
+#     for let in (a):
+#         if("b" in let):
+#             print(cont,let)
+#             cont+=1
+#     break
+
+a = 
+
+print(a)
+
+a=[[("rom"),("70")],
+   [("na"),("80")]]
+
+for max in a:
+    if 
+
+   for medico in Policlinica.medicos:
+                if medico.especialidad.nombre==especialidad:
+                        print(f"{medico.nombre}, {medico.apellido}")
+                else:
+                        

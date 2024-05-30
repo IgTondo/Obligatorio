@@ -2,15 +2,6 @@ import datetime
 # from entities.policlinica import Policlinica
 
 class Utils:    
-
-    def solicitar_input(mensaje, validacion, mensaje_error):
-        while True:
-            valor = input(mensaje)
-            if validacion(valor):
-                return valor
-            else:
-                print(mensaje_error)
-                return Utils.solicitar_input(mensaje, validacion, mensaje_error)
             
     def verificar_string(string):
         if(not all(x.isalpha() or x.isspace() for x in string)):
@@ -40,6 +31,12 @@ class Utils:
         if(not cel.isdecimal() or len(cel) != 9 or cel[0:2] != "09"):
             return True
         else:
+            return False
+        
+    def fecha_consulta(fecha):
+        if(fecha < str(datetime.datetime.now())): 
+            return True
+        else: 
             return False
         
 

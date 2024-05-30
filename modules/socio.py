@@ -1,4 +1,4 @@
-from entities.persona import Persona
+from modules.persona import Persona
 
 class Socio(Persona):
     
@@ -6,6 +6,7 @@ class Socio(Persona):
         super().__init__(nombre, apellido, ci, fecha_nacimiento, fecha_ingreso, celular)
         self.tipo = tipo
         self.deuda = 0
+        self.consultas_medicas = []
         
     def __str__(self):
         return (f"{self.nombre}, {self.apellido}")
