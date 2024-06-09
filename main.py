@@ -2,6 +2,8 @@ from modules.policlinica import Policlinica
 
 if __name__ == "__main__":
     
+    policlinica = Policlinica()
+    
     while True:
         print("---MENU---")
         print("\t1. Dar de alta una especialidad")
@@ -12,8 +14,6 @@ if __name__ == "__main__":
         print("\t6. Realizar consultas")
         print("\t7. Salir del programa")
         op = input("Seleccione una opción del menú:")
-        
-        policlinica = Policlinica()
         
         match op:
             case "1":

@@ -41,11 +41,28 @@ Veiga
 Cardiología
 4
 Medicina General
-34567890
-2024-05-31
+Martha Pino
+2024-06-11
 3
 5
 Medicina General
-23456789
 1
+2
+12345678
+6
+1
+Medicina General
+6
+2
+Pediatría
+6
 3
+6
+4
+2024-06-10
+2024-06-12
+6
+5
+2024-06-10
+2024-06-12
+7

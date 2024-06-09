@@ -5,8 +5,8 @@ class Utils:
             
     def verificar_string(string):
         if(not all(x.isalpha() or x.isspace() for x in string)):
-            return False
-        else: return True
+            return True
+        else: return False
 
     def verificar_ci(ci):
         if(not ci.isdecimal() or len(ci) != 8):
@@ -41,9 +41,6 @@ class Utils:
         
 
         
-        #cambiar nombre y apellido a cedula
 
             
-                
-        #verificar fecha de la consulta no vencida
                     
