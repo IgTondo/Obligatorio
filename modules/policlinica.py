@@ -260,7 +260,7 @@ class Policlinica:
         
         while True:
             nombreCompleto = input("\t- Ingrese el nombre completo: ")
-            if(Utils.verificar_string(nombreCompleto)): 
+            if(Utils.verificar_string(nombreCompleto) or len(nombreCompleto.split()) != 2): 
                 print("No es un nombre válido,ingréselo nuevamente")
                 continue
             nombre = nombreCompleto.split()[0]
