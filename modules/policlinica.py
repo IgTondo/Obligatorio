@@ -121,8 +121,8 @@ class Policlinica:
 
         self.especialidades.append(Especialidad(nombre, int(precio)))
         print("La especialidad se ha creado con exito")
-        for especialidad in self.especialidades:
-            print(especialidad)
+        # for especialidad in self.especialidades:
+        #     print(especialidad)
         
     def dar_alta_medico(self):
         print("--------------------------------------")
@@ -190,7 +190,6 @@ class Policlinica:
 
 
     def alta_socio(self):
-        # while True:
         print("--------------------------------------")
         while True:
             nombre = input("\t- Ingrese el nombre: ")
@@ -299,11 +298,12 @@ class Policlinica:
         consulta_medica = ConsultaMedica(fecha_consulta, especialidad, medico1, int(cant_pacientes))
         self.consultas_medicas.append(consulta_medica)
         medico1.consultas_medicas.append(consulta_medica)
-        print(consulta_medica)
+        # print(consulta_medica)
         
         
     def emitir_ticket(self):
             print("--------------------------------------")
+            salir = False
             while True:
                 especialidad = input("\t- Ingrese la especialidad: ")
                 res = self.verificar_especialidad(especialidad)
@@ -313,9 +313,20 @@ class Policlinica:
                     self.alta_especialidad()
                 
                 if(self.verificar_consultas_con_especialidad(especialidad)):
-                    print("La especialidad elegida no tiene consultas disponibles, ingrese otra.")
+                    print("La especialidad elegida no tiene consultas disponibles.\n1- Ingresar otra especialidad\n2- Salir")
+                    op = input("Seleccione la opción deseada: ")
+                    match op:
+                        case "1":
+                            continue
+                        case "2":
+                            salir = True
+                            break
+                        case _:
+                            print("La opción ingresada no es válida, debe ser un número entre 1 y 2")
                     continue
                 break
+            if salir:
+                return
             
             while True:
                 ops = []
@@ -406,7 +417,7 @@ class Policlinica:
             break
                
             
-
+    #Obtener todos los médicos asociados a una especialidad específica
     def medicos_con_especialidad(self):
         var = False
         while True:
@@ -431,7 +442,8 @@ class Policlinica:
             if op=="1":
                 continue
             break
-
+    
+    #Obtener el precio de una consulta de una especialidad en específico. 
     def precio_consulta(self):
         while True:
             especialidad=input("Insertar la especialidad:")
@@ -479,7 +491,7 @@ class Policlinica:
                 cont+=1
         print(f"La cantidad de consultas entre las fechas {fecha1} y {fecha2} es de {cont}")
 
-#Realizar consultas respecto a las ganancias obtenidas entre dos fechas
+    #Realizar consultas respecto a las ganancias obtenidas entre dos fechas
     def ganancias(self):
         ganancia = 0
         while True:

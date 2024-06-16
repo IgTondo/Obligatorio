@@ -2,14 +2,14 @@
 Medicina General
 3500
 1
-Cardiología
+Cardiologia
 7000
 1
-Pediatría
+Pediatria
 4800
 2
 Juan
-Pérez
+Perez
 12345678
 1990-09-11
 2024-03-23
@@ -32,17 +32,17 @@ Pino
 093456765
 Medicina General
 3
-Tomás
+Tomas
 Veiga
 25467890
 1957-03-12
 2023-09-21
 093446765
-Cardiología
+Cardiologia
 4
 Medicina General
 Martha Pino
-2024-06-11
+2024-07-11
 3
 5
 Medicina General
@@ -54,15 +54,15 @@ Medicina General
 Medicina General
 6
 2
-Pediatría
+Pediatria
 6
 3
 6
 4
-2024-06-10
-2024-06-12
+2024-07-10
+2024-07-12
 6
 5
-2024-06-10
-2024-06-12
+2024-07-10
+2024-07-12
 7
