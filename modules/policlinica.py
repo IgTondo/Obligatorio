@@ -359,7 +359,8 @@ class Policlinica:
                         
                 op1 = input("Seleccione el número de atención deseado: ")
                 if op1 not in consulta.cant_pacientes:
-                    print(f"No es un número de consulta válido, los números válidos son: {", ".join(str(x) for x in consulta.cant_pacientes)}")
+                    nums_validos = ", ".join(str(x) for x in consulta.cant_pacientes)
+                    print(f"No es un número de consulta válido, los números válidos son: {nums_validos}")
                     continue
                 
                 break
