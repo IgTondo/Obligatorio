@@ -185,8 +185,8 @@ class Policlinica:
                 
         self.medicos.append(Medico(nombre, apellido, ci, fecha_nacimiento, fecha_ingreso, celular, especialidad))
         print("El médico se ha agregado exitosamente.")
-        for medico in self.medicos:
-            print(medico)
+        # for medico in self.medicos:
+        #     print(medico)
 
 
     def alta_socio(self):
@@ -244,8 +244,8 @@ class Policlinica:
                 
         self.socios.append(Socio(nombre, apellido, ci, fecha_nacimiento, fecha_ingreso, celular, tipo))
         print("El socio se ha creado con exito.")
-        for socio in self.socios:
-            print(socio)
+        # for socio in self.socios:
+        #     print(socio)
         
     def alta_consulta_medica(self):
         print("--------------------------------------")
